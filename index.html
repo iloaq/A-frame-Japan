@@ -13,7 +13,7 @@
   </head>
   <body>
     <a-scene
-      background="color: #212"
+      
    
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
       <a-assets>
@@ -40,7 +40,7 @@
         <img id="karigurashiPoster" src="https://cdn.aframe.io/examples/ui/karigurashiPoster.jpg" crossorigin="anonymous"/>
         <a-mixin
           id="frame"
-          geometry="primitive: plane; width: 0.5783552; height: 0.8192;"
+          geometry="primitive: plane; width: 0.25; height: 0.8192;"
           material="shader: flat"
           animation__scale="property: scale; to: 1 1 1; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
@@ -71,14 +71,11 @@
 
       <a-entity
         position="0 1.6 0"
-        
-        <a-entity
-          id="fadeBackground"
-          geometry="primitive: sphere; radius: 2.5"
-          material="color: black; side: back; shader: flat; transparent: true; opacity: 0.6" visible="false">
-        </a-entity>
-      </a-entity>
-
+      ></a-entity>
+      
+       <a-entity environment></a-entity>
+      
+      <a-entity gltf-model="#village" scale="1 1 1"></a-entity>
       <!-- Hand controls -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
@@ -86,11 +83,11 @@
       <a-entity id="ui" position="0 1.6 -2.5">
         <!-- Poster menu -->
         <a-entity id="menu" highlight>
-          <a-entity id="karigurashiButton" position="-0.8 0 0" mixin="frame" class="raycastable menu-button">
+          <a-entity id="karigurashiButton" position="-0.8 -0.5 0" mixin="frame" class="raycastable menu-button">
             <a-entity gltf-model="#villager" scale="0.001 0.001 0.001" position="0 -1 0"></a-entity>
           </a-entity>
 
-          <a-entity id="kazetachinuButton" position="0 0 0" mixin="frame" class="raycastable menu-button">
+          <a-entity id="kazetachinuButton" position="0 0 4" mixin="frame" class="raycastable menu-button">
             <a-entity material="src: #kazetachinuPoster" mixin="poster"></a-entity>
           </a-entity>
 
