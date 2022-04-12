@@ -10,10 +10,11 @@
     <script src="https://rawgit.com/aframevr/aframe/master/examples/showcase/ui/highlight.js"></script>
     <script src="info-panel.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="//unpkg.com/aframe-physics-system@3.1.2/dist/aframe-physics-system.min.js"></script>  
   </head>
   <body>
     <a-scene
-      physics="debug: true"
+      
    
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
       <a-assets>
@@ -52,20 +53,12 @@
         visible="false" class="raycastable">
       </a-entity>
 
-      <a-entity
-        position="0 1.6 0"
-      ></a-entity>
-
-       <a-entity id="rig" movement-controls kinematic-body jump-ability>
-        <a-entity camera look-controls="pointerLockEnabled: true;" position="0 1.6 0"></a-entity>
-       </a-entity>
-      
-      <a-entity static-body gltf-model="#boat" scale="0.001 0.001 0.001" position="3 0 0" ></a-entity>
-      <a-entity static-body gltf-model="#city" scale="1 1 1"  ></a-entity>
+      <a-entity  gltf-model="#boat" scale="0.001 0.001 0.001" position="4 0 0" ></a-entity>
+      <a-entity  gltf-model="#city" scale="1 1 1"  ></a-entity>
       <!-- Hand controls -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
-
+      
       <a-entity id="ui" position="0 1.6 -2.5">
         <!-- Poster menu -->
         <a-entity id="menu" highlight>
