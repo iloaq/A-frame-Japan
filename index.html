@@ -10,12 +10,10 @@
     <script src="https://rawgit.com/aframevr/aframe/master/examples/showcase/ui/highlight.js"></script>
     <script src="info-panel.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="//unpkg.com/aframe-physics-system@3.1.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-timeline-component@2.0.0/dist/aframe-animation-timeline-component.min.js"></script>
   </head>
   <body>
     <a-scene
-      physics="gravity: -9.8"
       animation-timeline__1="timeline: #boatTimeline; loop: true"
       cursor="rayOrigin: mouse; fuse: false"
       raycaster="objects: .raycastable"
@@ -62,7 +60,6 @@
           id="poster"
           geometry="primitive: plane; width: 0.544768; height: 0.786432"
           material="color: white; shader: flat"
-          material="shader: flat"
           position="0 0 0.005"
         ></a-mixin>
         <a-mixin
@@ -86,7 +83,8 @@
 
       <a-gltf-model
         src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"
-        animation-mixer
+        animation-mixer scale="0.5 0.5 0.5" position="17.5 2.5 10"
+        animation__drive="dur:2000;easing:l;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
       ></a-gltf-model>
 
       <a-entity
@@ -97,7 +95,7 @@
         animation__up="dur:2000;easing:easeInOutSine;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
         animation__down="dur:2000;easing:easeInOutSine;from: -0.3; to: 0; loop:-1; property:object3D.position.y"
       ></a-entity>
-      <a-entity gltf-model="#city" scale="1 1 1"></a-entity>
+      <a-entity static-body gltf-model="#city" scale="1 1 1"></a-entity>
       <!-- Hand controls -->
       <a-entity
         id="leftHand"
@@ -121,10 +119,11 @@
             class="raycastable menu-button"
           >
             <a-entity
-              dynamic-body
+              
               gltf-model="#villager"
               scale="0.001 0.001 0.001"
-              position="0 12 0"
+              position="0 -1 0"
+              
             ></a-entity>
           </a-entity>
         </a-entity>
