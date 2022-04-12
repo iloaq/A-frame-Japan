@@ -11,13 +11,18 @@
     <script src="info-panel.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="//unpkg.com/aframe-physics-system@3.1.2/dist/aframe-physics-system.min.js"></script>  
+    <script src="https://rawgit.com/supermedium/superframe/master/components/animation-timeline/dist/aframe-animation-timeline-component.min.js"></script>
   </head>
   <body>
     <a-scene
-      
+      animation-timeline1="timeline: #boatTimeline; loop: true"
    
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
       <a-assets>
+        <a-timeline id="boatTimeline">
+          <a-timeline-animation select="#boatobg" name="up"></a-timeline-animation>
+          <a-timeline-animation select="#boatobg" name="down"></a-timeline-animation>
+        </a-timeline>
         <a-asset-item id="city" src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/city.gltf?v=1649773569783"></a-asset-item>
         <a-asset-item id="villager" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"></a-asset-item>
         <a-asset-item id="anime" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"></a-asset-item>
@@ -53,9 +58,10 @@
         visible="false" class="raycastable">
       </a-entity>
 
-      <a-entity  gltf-model="#boat" scale="0.001 0.001 0.001" position="7 0 1" 
+      <a-entity  id="boatobg" gltf-model="#boat" scale="0.001 0.001 0.001" position="7 0 1" 
       animation__up="dur:2000;easing:easeInOutSine;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
-                ></a-entity>
+      animation__down="dur:2000;easing:easeInOutSine;from: -0.3; to: 0; loop:-1; property:object3D.position.y"
+      ></a-entity>
       <a-entity  gltf-model="#city" scale="1 1 1"  ></a-entity>
       <!-- Hand controls -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
