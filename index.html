@@ -80,11 +80,13 @@
         class="raycastable"
       >
       </a-entity>
-
+      
+      <a-entity camera look-controls wasd-controls position="0 1.5 6"></a-entity>
+      
       <a-gltf-model
         src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"
         animation-mixer scale="0.5 0.5 0.5" position="17.5 2.5 10"
-        animation__drive="dur:2000;easing:l;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
+        animation__drive="dur:7000;easing:linear;from: 10; to: -10; loop:-1; property:object3D.position.z"
       ></a-gltf-model>
 
       <a-entity
@@ -114,7 +116,7 @@
         <a-entity id="menu" highlight>
           <a-entity
             id="karigurashiButton"
-            position="-0.8 -0.5 0"
+            position="0 -0.5 5"
             mixin="frame"
             class="raycastable menu-button"
           >
@@ -131,7 +133,7 @@
         <!-- Info panel of the selected movie. -->
         <a-entity
           id="infoPanel"
-          position="0 0 0.5"
+          position="0 0 6"
           info-panel
           visible="false"
           scale="0.001 0.001 0.001"
