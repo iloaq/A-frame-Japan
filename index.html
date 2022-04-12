@@ -7,23 +7,29 @@
   </head>
   <body>
     <a-scene background="color: red">
+      <!-- ASSETS -->
       <a-assets>
         <a-asset-item
           id="village"
           src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/village.gltf?v=1649732485782"
         ></a-asset-item>
-        <a-asset-item id="villager"
+        <a-asset-item 
+          id="villager"
           src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"
         ></a-asset-item>
-        <a-asset-item id="anime"
+        <a-asset-item 
+          id="anime"
           src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"
         ></a-asset-item>  
       </a-assets>
+      <!-- Environment background -->
       <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
+      <!-- NPC ANIME -->
       <a-entity gltf-model="#anime" scale="0.1 0.1 0.1" position="2 0 0"></a-entity>
+      <!-- VILLAGE -->
       <a-entity gltf-model="#village" scale="1 1 1"></a-entity>
+      <!-- NPC VILLAGER -->
       <a-entity gltf-model="#villager" scale="0.001 0.001 0.001"></a-entity>
-      <a-sky color="#ffffs"></a-sky>
     </a-scene>
   </body>
 </html>
