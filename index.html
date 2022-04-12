@@ -6,7 +6,7 @@
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene background="color: red">
       <a-assets>
         <a-asset-item
           id="village"
@@ -19,6 +19,7 @@
           src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"
         ></a-asset-item>  
       </a-assets>
+      <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
       <a-entity gltf-model="#anime" scale="0.1 0.1 0.1" position="2 0 0"></a-entity>
       <a-entity gltf-model="#village" scale="1 1 1"></a-entity>
       <a-entity gltf-model="#villager" scale="0.001 0.001 0.001"></a-entity>
