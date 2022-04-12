@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Laser input UI</title>
-    <meta name="description" content="Laser input UI • A-Frame" />
+    <title>Japan</title>
+    <!-- git hub A-frame links -->
     <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://rawgit.com/aframevr/aframe/master/examples/js/info-message.js"></script>
@@ -13,12 +13,15 @@
     <script src="https://unpkg.com/aframe-animation-timeline-component@2.0.0/dist/aframe-animation-timeline-component.min.js"></script>
   </head>
   <body>
+    <!-- Scene create -->
     <a-scene
       animation-timeline__1="timeline: #boatTimeline; loop: true"
       cursor="rayOrigin: mouse; fuse: false"
       raycaster="objects: .raycastable"
     >
+      <!-- All assets from entity -->
       <a-assets>
+        <!-- timeline animation -->
         <a-timeline id="boatTimeline">
           <a-timeline-animation
             select="#boatobg"
@@ -30,28 +33,36 @@
           ></a-timeline-animation>
         </a-timeline>
         
-        <img id="sky" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/b31708f7-b2b0-426f-a53e-831f25b10717.image.png?v=1649786306214">
-        
+        <!-- img sky -->
+        <img
+          id="sky"
+          src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/b31708f7-b2b0-426f-a53e-831f25b10717.image.png?v=1649786306214"
+        />
+        <!-- city gltf asset -->
         <a-asset-item
           id="city"
           src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/city.gltf?v=1649773569783"
         ></a-asset-item>
+        
+        <!-- people villager gltf asset -->
         <a-asset-item
           id="villager"
           src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"
         ></a-asset-item>
-        <a-asset-item
-          id="anime"
-          src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"
-        ></a-asset-item>
+        
+        <!-- boat gltf asset -->
         <a-asset-item
           id="boat"
           src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/boat.gltf?v=1649773929013"
         ></a-asset-item>
+        
+        <!-- Train gltf asset -->
         <a-asset-item
           id="train"
           src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"
         ></a-asset-item>
+        
+        <!-- Mixin frame and animation -->
         <a-mixin
           id="frame"
           geometry="primitive: plane; width: 0.25; height: 0.8192;"
@@ -59,20 +70,17 @@
           animation__scale="property: scale; to: 1 1 1; dur: 0; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 0; startEvents: mouseleave"
         ></a-mixin>
+        
+        <!-- Mixin poster plane -->
         <a-mixin
           id="poster"
           geometry="primitive: plane; width: 0.544768; height: 0.786432"
           material="color: white; shader: flat"
           position="0 0 0.005"
         ></a-mixin>
-        <a-mixin
-          id="movieImage"
-          geometry="primitive: plane; width: 1.5; height: 0.81"
-          material="src: #ponyo; shader: flat; transparent: true"
-          position="0 0.495 0.002"
-        ></a-mixin>
       </a-assets>
-      
+
+      <!-- city gltf asse -->
       <a-entity
         id="background"
         position="0 0 0"
@@ -83,15 +91,29 @@
         class="raycastable"
       >
       </a-entity>
-      <a-sky src="#sky"></a-sky>
-      <a-entity camera look-controls wasd-controls position="0 1.5 6"></a-entity>
       
+      
+      <!-- Scene sky -->
+      <a-sky src="#sky"></a-sky>
+      
+      <!-- Camera position and controls -->
+      <a-entity
+        camera
+        look-controls
+        wasd-controls
+        position="0 1.5 6"
+      ></a-entity>
+
+      <!-- gltf model Train and drive animation  -->
       <a-gltf-model
         src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"
-        animation-mixer scale="0.5 0.5 0.5" position="17.5 2.5 10"
+        animation-mixer
+        scale="0.5 0.5 0.5"
+        position="17.5 2.5 10"
         animation__drive="dur:7000;easing:linear;from: 10; to: -10; loop:-1; property:object3D.position.z"
       ></a-gltf-model>
 
+      <!-- Boat entity and animation -->
       <a-entity
         id="boatobg"
         gltf-model="#boat"
@@ -100,7 +122,12 @@
         animation__up="dur:2000;easing:easeInOutSine;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
         animation__down="dur:2000;easing:easeInOutSine;from: -0.3; to: 0; loop:-1; property:object3D.position.y"
       ></a-entity>
-      <a-entity static-body gltf-model="#city" scale="1 1 1"></a-entity>
+      
+      
+      <!-- city gltf  -->
+      <a-entity gltf-model="#city" scale="1 1 1"></a-entity>
+      
+      
       <!-- Hand controls -->
       <a-entity
         id="leftHand"
@@ -114,6 +141,7 @@
         line="color: #118A7E"
       ></a-entity>
 
+      <!-- Villager  -->
       <a-entity id="ui" position="0 1.6 -2.5">
         <!-- Poster menu -->
         <a-entity id="menu" highlight>
@@ -124,11 +152,9 @@
             class="raycastable menu-button"
           >
             <a-entity
-              
               gltf-model="#villager"
               scale="0.001 0.001 0.001"
               position="0 -1 0"
-              
             ></a-entity>
           </a-entity>
         </a-entity>
