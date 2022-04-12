@@ -16,7 +16,8 @@
   <body>
     <a-scene
       animation-timeline__1="timeline: #boatTimeline; loop: true"
-   
+      gltf-model="dracoDecoderPath: src="https://rawgit.com/mrdoob/three.js/master/examples/js/libs/draco/gltf/draco_decoder.js";
+    meshoptDecoderPath: src="https://rawgit.com/mrdoob/three.js/master/examples/js/libs/draco/gltf/draco_encoder.js";"
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
       <a-assets>
         <a-timeline id="boatTimeline">
@@ -27,8 +28,7 @@
         <a-asset-item id="villager" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"></a-asset-item>
         <a-asset-item id="anime" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"></a-asset-item>
         <a-asset-item id="boat" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/boat.gltf?v=1649773929013"></a-asset-item>
-        <a-asset-item id="train" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/traina.gltf?v=1649782561573"></a-asset-item>
-        <img id="train1" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/Electric_baseColor.png?v=1649782545052">
+        <a-asset-item id="train" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"></a-asset-item>
         <a-mixin
           id="frame"
           geometry="primitive: plane; width: 0.25; height: 0.8192;"
@@ -60,7 +60,7 @@
         visible="false" class="raycastable">
       </a-entity>
 
-      <a-entity gltf-model="#train" scale="12 12 12" materials="#train1" animation-mixer="clip:Animation; loop:repeat"></a-entity>
+      <a-entity gltf-model="#train" animation-mixer="clip:Animation; loop:repeat"></a-entity>
       
       <a-entity  id="boatobg" gltf-model="#boat" scale="0.001 0.001 0.001" position="7 0 1" 
       animation__up="dur:2000;easing:easeInOutSine;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
