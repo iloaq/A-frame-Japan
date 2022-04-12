@@ -92,21 +92,20 @@
         <!-- Info panel of the selected movie. -->
         <a-entity
           id="infoPanel"
-          position="0 0 1.5"
+          position="0 0 0.5"
           info-panel
           visible="false"
           scale="0.001 0.001 0.001"
-          geometry="primitive: plane; width: 1.5; height: 1.8"
-          material="color: #333333; shader: flat; transparent: false" class="raycastable">
+          >
           <a-entity id="ponyoMovieImage"   visible="false"></a-entity>
           <a-entity id="kazetachinuMovieImage"   visible="false"></a-entity>
           <a-entity id="karigurashiMovieImage"   visible="false"></a-entity>
           <a-entity id="movieTitle"
-            position="-0.68 -0.1 0"
-            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Валентина"></a-entity>
+            position="-0.68 0 0"
+            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Valentina"></a-entity>
           <a-entity id="movieDescription"
-            position="-0.68 -0.2 0"
-            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Меня зовут Валентина, мне 20 лет. С дества я живу в этой де"></a-entity>
+            position="-0.68 -0.1 0"
+            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value:  My name is Valentina, I am 20 years old. I've been living in this village since childhood, we haven't had visitors for a long time."></a-entity>
         </a-entity>
       </a-entity>
     </a-scene>
