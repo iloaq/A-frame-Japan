@@ -13,7 +13,7 @@
   </head>
   <body>
     <a-scene
-      
+      physics="debug: true"
    
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
       <a-assets>
@@ -55,9 +55,13 @@
       <a-entity
         position="0 1.6 0"
       ></a-entity>
+
+       <a-entity id="rig" movement-controls kinematic-body jump-ability>
+        <a-entity camera look-controls="pointerLockEnabled: true;" position="0 1.6 0"></a-entity>
+       </a-entity>
       
-      <a-entity gltf-model="#boat" scale="0.001 0.001 0.001" position="3 0 0"></a-entity>
-      <a-entity gltf-model="#city" scale="1 1 1"></a-entity>
+      <a-entity static-body gltf-model="#boat" scale="0.001 0.001 0.001" position="3 0 0" ></a-entity>
+      <a-entity static-body gltf-model="#city" scale="1 1 1"  ></a-entity>
       <!-- Hand controls -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
@@ -66,7 +70,7 @@
         <!-- Poster menu -->
         <a-entity id="menu" highlight>
           <a-entity id="karigurashiButton" position="-0.8 -0.5 0" mixin="frame" class="raycastable menu-button">
-            <a-entity gltf-model="#villager" scale="0.001 0.001 0.001" position="0 -1 0"></a-entity>
+            <a-entity static-body gltf-model="#villager" scale="0.001 0.001 0.001" position="0 -1 0"></a-entity>
           </a-entity>
         </a-entity>
       
