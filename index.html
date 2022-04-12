@@ -14,12 +14,13 @@
   <body>
     <a-scene
       background="color: #212"
-      environment
-      cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable"
-      info-message="htmlSrc: #messageText">
+   
+      cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
       <a-assets>
-     
-        <!--
+        <a-asset-item id="village" src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/village.gltf?v=1649732485782"></a-asset-item>
+        <a-asset-item id="villager" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"></a-asset-item>
+        <a-asset-item id="anime" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"></a-asset-item>
+         <!--
           Image source: http://www.ghibli.jp/works/kazetachinu/#frame&gid=1&pid=1
           Image author: Studio Ghibli
         -->
@@ -86,7 +87,7 @@
         <!-- Poster menu -->
         <a-entity id="menu" highlight>
           <a-entity id="karigurashiButton" position="-0.8 0 0" mixin="frame" class="raycastable menu-button">
-            <a-entity material="src: #karigurashiPoster;" mixin="poster"></a-entity>
+            <a-entity gltf-model="#" mixin="poster"></a-entity>
           </a-entity>
 
           <a-entity id="kazetachinuButton" position="0 0 0" mixin="frame" class="raycastable menu-button">
@@ -97,19 +98,20 @@
             <a-entity material="src: #ponyoPoster" mixin="poster"></a-entity>
           </a-entity>
         </a-entity>
+      
 
         <!-- Info panel of the selected movie. -->
         <a-entity
           id="infoPanel"
-          position="0 0 0.5"
+          position="0 0 1.5"
           info-panel
           visible="false"
           scale="0.001 0.001 0.001"
           geometry="primitive: plane; width: 1.5; height: 1.8"
           material="color: #333333; shader: flat; transparent: false" class="raycastable">
-          <a-entity id="ponyoMovieImage" mixin="movieImage" material="src: #ponyo" visible="false"></a-entity>
-          <a-entity id="kazetachinuMovieImage" mixin="movieImage" material="src: #kazetachinu" visible="false"></a-entity>
-          <a-entity id="karigurashiMovieImage" mixin="movieImage" material="src: #karigurashi" visible="false"></a-entity>
+          <a-entity id="ponyoMovieImage"   visible="false"></a-entity>
+          <a-entity id="kazetachinuMovieImage"   visible="false"></a-entity>
+          <a-entity id="karigurashiMovieImage"   visible="false"></a-entity>
           <a-entity id="movieTitle"
             position="-0.68 -0.1 0"
             text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Ponyo (2003)"></a-entity>
