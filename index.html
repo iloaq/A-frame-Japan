@@ -1,54 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Laser input UI</title>
-    <meta name="description" content="Laser input UI • A-Frame">
+    <meta name="description" content="Laser input UI • A-Frame" />
     <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.3.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://rawgit.com/aframevr/aframe/master/examples/js/info-message.js"></script>
     <script src="https://rawgit.com/aframevr/aframe/master/examples/showcase/ui/highlight.js"></script>
     <script src="info-panel.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="//unpkg.com/aframe-physics-system@3.1.2/dist/aframe-physics-system.min.js"></script>  
+    <script src="//unpkg.com/aframe-physics-system@3.1.2/dist/aframe-physics-system.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-timeline-component@2.0.0/dist/aframe-animation-timeline-component.min.js"></script>
   </head>
   <body>
     <a-scene
+      physics="gravity: -9.8"
       animation-timeline__1="timeline: #boatTimeline; loop: true"
-      gltf-model="dracoDecoderPath: src="https://rawgit.com/mrdoob/three.js/master/examples/js/libs/draco/gltf/draco_decoder.js";
-    meshoptDecoderPath: src="https://rawgit.com/mrdoob/three.js/master/examples/js/libs/draco/gltf/draco_encoder.js";"
-      cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
+      cursor="rayOrigin: mouse; fuse: false"
+      raycaster="objects: .raycastable"
+    >
       <a-assets>
         <a-timeline id="boatTimeline">
-          <a-timeline-animation select="#boatobg" name="up"></a-timeline-animation>
-          <a-timeline-animation select="#boatobg" name="down"></a-timeline-animation>
+          <a-timeline-animation
+            select="#boatobg"
+            name="up"
+          ></a-timeline-animation>
+          <a-timeline-animation
+            select="#boatobg"
+            name="down"
+          ></a-timeline-animation>
         </a-timeline>
-        <a-asset-item id="city" src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/city.gltf?v=1649773569783"></a-asset-item>
-        <a-asset-item id="villager" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"></a-asset-item>
-        <a-asset-item id="anime" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"></a-asset-item>
-        <a-asset-item id="boat" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/boat.gltf?v=1649773929013"></a-asset-item>
-        <a-asset-item id="train" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"></a-asset-item>
+        <a-asset-item
+          id="city"
+          src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/city.gltf?v=1649773569783"
+        ></a-asset-item>
+        <a-asset-item
+          id="villager"
+          src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"
+        ></a-asset-item>
+        <a-asset-item
+          id="anime"
+          src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"
+        ></a-asset-item>
+        <a-asset-item
+          id="boat"
+          src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/boat.gltf?v=1649773929013"
+        ></a-asset-item>
+        <a-asset-item
+          id="train"
+          src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"
+        ></a-asset-item>
         <a-mixin
           id="frame"
           geometry="primitive: plane; width: 0.25; height: 0.8192;"
           material="shader: flat"
           animation__scale="property: scale; to: 1 1 1; dur: 200; startEvents: mouseenter"
           animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave"
-         ></a-mixin>
-         <a-mixin
+        ></a-mixin>
+        <a-mixin
           id="poster"
           geometry="primitive: plane; width: 0.544768; height: 0.786432"
           material="color: white; shader: flat"
           material="shader: flat"
           position="0 0 0.005"
-         ></a-mixin>
-         <a-mixin
+        ></a-mixin>
+        <a-mixin
           id="movieImage"
           geometry="primitive: plane; width: 1.5; height: 0.81"
           material="src: #ponyo; shader: flat; transparent: true"
           position="0 0.495 0.002"
-         ></a-mixin>
+        ></a-mixin>
       </a-assets>
 
       <a-entity
@@ -57,28 +79,55 @@
         geometry="primitive: sphere; radius: 2.0"
         material="color: red; side: back; shader: flat"
         scale="0.001 0.001 0.001"
-        visible="false" class="raycastable">
+        visible="false"
+        class="raycastable"
+      >
       </a-entity>
 
-      <a-entity gltf-model="#train" animation-mixer="clip:Animation; loop:repeat"></a-entity>
-      
-      <a-entity  id="boatobg" gltf-model="#boat" scale="0.001 0.001 0.001" position="7 0 1" 
-      animation__up="dur:2000;easing:easeInOutSine;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
-      animation__down="dur:2000;easing:easeInOutSine;from: -0.3; to: 0; loop:-1; property:object3D.position.y"
+      <a-gltf-model
+        src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/train.glb?v=1649781358739"
+        animation-mixer
+      ></a-gltf-model>
+
+      <a-entity
+        id="boatobg"
+        gltf-model="#boat"
+        scale="0.001 0.001 0.001"
+        position="7 0 1"
+        animation__up="dur:2000;easing:easeInOutSine;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
+        animation__down="dur:2000;easing:easeInOutSine;from: -0.3; to: 0; loop:-1; property:object3D.position.y"
       ></a-entity>
-      <a-entity  gltf-model="#city" scale="1 1 1"  ></a-entity>
+      <a-entity gltf-model="#city" scale="1 1 1"></a-entity>
       <!-- Hand controls -->
-      <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
-      <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
-      
+      <a-entity
+        id="leftHand"
+        laser-controls="hand: left"
+        raycaster="objects: .raycastable"
+      ></a-entity>
+      <a-entity
+        id="rightHand"
+        laser-controls="hand: right"
+        raycaster="objects: .raycastable"
+        line="color: #118A7E"
+      ></a-entity>
+
       <a-entity id="ui" position="0 1.6 -2.5">
         <!-- Poster menu -->
         <a-entity id="menu" highlight>
-          <a-entity id="karigurashiButton" position="-0.8 -0.5 0" mixin="frame" class="raycastable menu-button">
-            <a-entity static-body gltf-model="#villager" scale="0.001 0.001 0.001" position="0 -1 0"></a-entity>
+          <a-entity
+            id="karigurashiButton"
+            position="-0.8 -0.5 0"
+            mixin="frame"
+            class="raycastable menu-button"
+          >
+            <a-entity
+              dynamic-body
+              gltf-model="#villager"
+              scale="0.001 0.001 0.001"
+              position="0 12 0"
+            ></a-entity>
           </a-entity>
         </a-entity>
-      
 
         <!-- Info panel of the selected movie. -->
         <a-entity
@@ -87,13 +136,17 @@
           info-panel
           visible="false"
           scale="0.001 0.001 0.001"
-          >
-          <a-entity id="movieTitle"
+        >
+          <a-entity
+            id="movieTitle"
             position="-0.68 0 0"
-            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Valentina"></a-entity>
-          <a-entity id="movieDescription"
+            text="shader: msdf; anchor: left; width: 1.5; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value: Valentina"
+          ></a-entity>
+          <a-entity
+            id="movieDescription"
             position="-0.68 -0.1 0"
-            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value:  My name is Valentina, I am 20 years old. I've been living in this village since childhood, we haven't had visitors for a long time."></a-entity>
+            text="baseline: top; shader: msdf; anchor: left; font: https://cdn.aframe.io/examples/ui/Viga-Regular.json; color: white; value:  My name is Valentina, I am 20 years old. I've been living in this village since childhood, we haven't had visitors for a long time."
+          ></a-entity>
         </a-entity>
       </a-entity>
     </a-scene>
