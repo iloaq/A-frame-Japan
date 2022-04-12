@@ -1,5 +1,5 @@
 /* global AFRAME */
-AFRAME.registerComponent('info-panel1', {
+AFRAME.registerComponent('info-panel', {
   init: function () {
     var buttonEls = document.querySelectorAll('.menu-button');
     var fadeBackgroundEl = this.fadeBackgroundEl = document.querySelector('#fadeBackground');
@@ -10,7 +10,7 @@ AFRAME.registerComponent('info-panel1', {
 
     this.movieInfo = {
       karigurashiButton: {
-        title: 'Валентина',
+        title: '',
         imgEl: document.querySelector('#karigurashiMovieImage'),
         description: 'Меня зовут Валентина, мне 20 лет. С дества я живу в этой деревне, давно не было гостей у нас.'
       }
