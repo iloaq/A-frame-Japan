@@ -53,7 +53,9 @@
         visible="false" class="raycastable">
       </a-entity>
 
-      <a-entity  gltf-model="#boat" scale="0.001 0.001 0.001" position="4 0 0" ></a-entity>
+      <a-entity  gltf-model="#boat" scale="0.001 0.001 0.001" position="7 0 1" 
+      animation__up="dur:2000;easing:easeInOutSine;from: 0; to: -0.3; loop:-1; property:object3D.position.y"
+                ></a-entity>
       <a-entity  gltf-model="#city" scale="1 1 1"  ></a-entity>
       <!-- Hand controls -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
