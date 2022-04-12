@@ -17,10 +17,10 @@
    
       cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .raycastable">
       <a-assets>
-        <a-asset-item id="village" src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/village.gltf?v=1649732485782"></a-asset-item>
+        <a-asset-item id="city" src="https://cdn.glitch.me/78a17cd4-2f19-404f-ba86-78a460c7dcd3/city.gltf?v=1649773569783"></a-asset-item>
         <a-asset-item id="villager" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/villager.glb?v=1649734363149"></a-asset-item>
         <a-asset-item id="anime" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/anime.gltf?v=1649736347460"></a-asset-item>
-      
+        <a-asset-item id="boat" src="https://cdn.glitch.global/78a17cd4-2f19-404f-ba86-78a460c7dcd3/boat.gltf?v=1649773929013"></a-asset-item>
         <a-mixin
           id="frame"
           geometry="primitive: plane; width: 0.25; height: 0.8192;"
@@ -56,9 +56,8 @@
         position="0 1.6 0"
       ></a-entity>
       
-       <a-entity environment></a-entity>
-      
-      <a-entity gltf-model="#village" scale="1 1 1"></a-entity>
+      <a-entity gltf-model="#boat" scale="0.01 0.01 01"></a-entity>
+      <a-entity gltf-model="#city" scale="1 1 1"></a-entity>
       <!-- Hand controls -->
       <a-entity id="leftHand" laser-controls="hand: left" raycaster="objects: .raycastable"></a-entity>
       <a-entity id="rightHand" laser-controls="hand: right" raycaster="objects: .raycastable" line="color: #118A7E"></a-entity>
